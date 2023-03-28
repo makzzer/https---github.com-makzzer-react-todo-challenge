@@ -1,35 +1,45 @@
+import CrossIcon from "./components/icons/CrossIcon"
+
 const App = () => {
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
-    <div className="bg-[url('./images/bg-mobile-light.jpg')] bg-no-repeat bg-contain">
+    <div className="bg-[url('./images/bg-mobile-light.jpg')] bg-no-repeat bg-contain bg-gray-300 min-h-screen">
 
-      <header className="container mx-auto px-4">
-        <h1 className="uppercase">Todo</h1>
+      <header className="container mx-auto px-4 pt-8">
+
+        <div className="flex justify-between">
+        <h1 className="uppercase text-white text-3xl font-semibold tracking-[0.3em]">Todo</h1>
         <button>Luna</button>
-        <form action="">
-          <input type="text" placeholder="Crear una nueva tarea..." />
+        </div>
+
+        <form className="bg-white rounded-md overflow-hidden px-4 flex gap-4 items-center mt-8">
+          <span className="rounded-full border-2 w-5 h-5 inline-block"></span>
+          <input className="w-full text-gray-400 outline-none" type="text" placeholder="Crear una nueva tarea..." />
         </form>
       </header>
 
-      <main className="container mx-auto px-4">
-        <article>
-          <button>Circulo</button>
+      <main className="container mx-auto px-4 mt-8">
+       
+       <div className="bg-white rounded-md px-4">
+       <article>
+          <button className="rounded-full border-2 w-5 h-5 inline-block"></button>
           <p>Complete online JS Curse makzz</p>
-          <button>Exit</button>
+          <button> <CrossIcon/> </button>
         </article>
 
         <article>
-          <button>Circulo</button>
-          <p>Complete online JS Curse makzz</p>
-          <button>Exit</button>
+        <button className="rounded-full border-2 w-5 h-5 inline-block"></button>
+          <p className="text-gray-600 ">Complete online JS Curse makzz</p>
+          <button> <CrossIcon/> </button>
         </article>
 
         <article>
-          <button>Circulo</button>
+        <button className="rounded-full border-2 w-5 h-5 inline-block"></button>
           <p>Complete online JS Curse makzz</p>
-          <button>Exit</button>
+          <button> <CrossIcon/> </button>
         </article>
 
+       </div>
 
 
         <section>
