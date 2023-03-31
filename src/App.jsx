@@ -14,40 +14,39 @@ const App = () => {
 
         <form className="bg-white rounded-md overflow-hidden px-4 flex gap-4 items-center mt-8">
           <span className="rounded-full border-2 w-5 h-5 inline-block"></span>
-          <input className="w-full text-gray-400 outline-none" type="text" placeholder="Crear una nueva tarea..." />
+          <input className="px-4 py-4 w-full text-gray-400 outline-none" type="text" placeholder="Crear una nueva tarea..." />
         </form>
       </header>
 
       <main className="container mx-auto px-4 mt-8">
 
-        <div className="bg-white rounded-md">
+        <div className="bg-white rounded-md [&>article]:p-4">
 
-          <article className="flex gap-4 py-4 border-b-gray-800 border-b  px-4">
+          <article className="flex gap-4 border-b-gray-800 border-b">
             <button className="rounded-full border-2 w-5 h-5 inline-block flex-none"></button>
             <p className="grow">Complete online JS Curse makzz</p>
             <button className="flex-none"> <CrossIcon /> </button>
           </article>
 
-          <article className="flex gap-4 py-4 border-b-gray-800 border-b  px-4">
+          <article className="flex gap-4  border-b-gray-800 border-b">
             <button className="rounded-full border-2 w-5 h-5 inline-block flex-none"></button>
             <p className="grow">Complete online JS Curse makzz</p>
             <button className="flex-none"> <CrossIcon /> </button>
           </article>
 
-          <article className="flex gap-4 py-4 border-b-gray-800 border-b  px-4">
+          <article className="flex gap-4 border-b-gray-800 border-b">
             <button className="rounded-full border-2 w-5 h-5 inline-block flex-none"></button>
             <p className="grow">Complete online JS Curse makzz</p>
             <button className="flex-none"> <CrossIcon /> </button>
           </article>
+
+
+          <section className="py-4 px-4 justify-between flex">
+            <span className="text-gray-400">5 items left</span>
+            <button className="text-gray-400">Clear Completed</button>
+          </section>
 
         </div>
-
-
-        <section>
-          <span>5 items left</span>
-          <button>Clear Completed</button>
-        </section>
-
       </main>
 
       <section className="container mx-auto px-4">
