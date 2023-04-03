@@ -11,7 +11,7 @@ const App = () => {
             Todo
           </h1>
           <button>
-            <MoonIcon className="fill-red-700" />
+            <MoonIcon className="fill-red-400" />
           </button>
         </div>
 
