@@ -3,6 +3,12 @@ import TodoCreate from "./components/TodoCreate";
 import TodoFilter from "./components/TodoFilter";
 import TodoList from "./components/TodoList";
 import TodoComputed from "./components/TodoComputed";
+import Footer from "./components/Footer"
+
+//Creo el estado global que va a afectar a todos los otros componentes, 
+//los componentes hijos no pueden enviar props a los componentes padres por lo que los estados los van a estar gestionando
+//mi componente principal que en este caso es App.jsx
+//por lo que dentro de App.jsx voy a crear mi estado global--> osea mi estado inicial
 
 const App = () => {
   return (
@@ -22,9 +28,7 @@ const App = () => {
         <TodoFilter />
       </main>
 
-      <footer className=" container mx-auto mt-8 px-4 text-center">
-        Drag and drop to reorder list
-      </footer>
+      <Footer />
     </div>
   );
 };
