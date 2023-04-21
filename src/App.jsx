@@ -1,4 +1,4 @@
-import Header from "./components/header";
+import Header from "./components/Header";
 import TodoCreate from "./components/TodoCreate";
 import TodoFilter from "./components/TodoFilter";
 import TodoList from "./components/TodoList";
