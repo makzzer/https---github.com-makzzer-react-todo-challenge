@@ -15,11 +15,21 @@ const initialStateTodos = [
   { id: 1, title: "hola soy uno", completed: true },
   { id: 2, title: "hola soy dos", completed: false },
   { id: 3, title: "hola soy tres", completed: false },
-  { id: 4, title: "hola soy cuatro", completed: false }
+  { id: 4, title: "hola soy cuatro", completed: false },
 ];
 
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
+
+  //metodo para crear el todo, recibe el titulo
+  const createTodo = (title) => {
+    const newTodo = {
+      id: Date.now(),
+      title: title.trim(),
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
+  };
 
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
@@ -28,8 +38,8 @@ const App = () => {
       <Header />
 
       <main className="container mx-auto mt-8 px-4">
-        <TodoCreate />
-        <TodoList todos={todos}/>
+        <TodoCreate createTodo={createTodo} />
+        <TodoList todos={todos} />
         <TodoComputed />
         <TodoFilter />
       </main>
