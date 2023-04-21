@@ -1,16 +1,18 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
-    return (
-        <div className="rounded-t-md bg-white [&>article]:p-4 mt-8">
-          <TodoItem/>
-          <TodoItem/>
-          <TodoItem/>
-          <TodoItem/>
-          <TodoItem/>
-          <TodoItem/>
-      </div>
-    )
-}
+/*Acá le voy a pasar como prop los todos que inicie en el app.jsx y voy a recorrer esa lista de todos usando un todo al estilo que recorre el foreach*/ 
+
+const TodoList = ({ todos }) => {
+  return (
+
+    <div className="mt-8 rounded-t-md bg-white [&>article]:p-4">
+
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
+
+    </div>
+  );
+};
 
 export default TodoList;
