@@ -1,4 +1,4 @@
-import MoonIcon from "./icons/MoonIcon";
+import IconMoon from "./icons/IconMoon";
 
 //{/*Header (Componente) en vuejs recomiendan qe los componentes no sean de 1 palabra, en react si se podría*/}
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
             Todo
           </h1>
           <button>
-            <MoonIcon className="fill-green-400" />
+            <IconMoon className="fill-green-400" />
           </button>
         </div>
       </header>

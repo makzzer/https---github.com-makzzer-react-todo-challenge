@@ -2,7 +2,7 @@
 // 2) Spread Operator
 // 3) Rest Operator
 
-const MoonIcon = ({ fill = "#fff", ...props }) => {
+const IconMoon = ({ fill = "#fff", ...props }) => {
   return (
     <svg
       fill={fill}
@@ -19,4 +19,4 @@ const MoonIcon = ({ fill = "#fff", ...props }) => {
   );
 };
 
-export default MoonIcon;
+export default IconMoon;
