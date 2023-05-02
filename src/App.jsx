@@ -36,16 +36,20 @@ const App = () => {
     setTodos(newArray);
   };
 
-  const updateTodo = (id) => {
-    const tareaAModificar = todos.find((todo) => todo.id === id);
+  
 
+  {/**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
+  const updateTodo = (id) => {
+
+    const tareaAModificar = todos.find((todo) => todo.id === id);
+   
     // Si no se encontró la tarea, no se hace nada y retorna
     if (!tareaAModificar) {
       return;
     }
 
     //modifica el estado de la tarea
-    const tareaActualizada = { ...tareaAModificar, completed : true };
+    const tareaActualizada = { ...tareaAModificar, completed : !todo.completed };
 
     //hace una copia de la lista original
     const listaCopiada = [...todos];
@@ -61,7 +65,19 @@ const App = () => {
 
     // Actualiza el estado con la copia actualizada del array
     setTodos(tareasActualizadas);
-  };
+
+
+     */}
+
+
+const updateTodo = (id) =>{
+  setTodos(todos.map(
+    todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+}
+
+
+
+  
 
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
