@@ -30,14 +30,38 @@ const App = () => {
     setTodos([...todos, newTodo]);
   };
 
-
   //metodo para eliminar el Todo, recibe el key entiendo
   const deleteTodo = (id) => {
-    const newArray = todos.filter(todo => todo.id != id)
-    setTodos(newArray)
+    const newArray = todos.filter((todo) => todo.id != id);
+    setTodos(newArray);
   };
 
+  const updateTodo = (id) => {
+    const tareaAModificar = todos.find((todo) => todo.id === id);
 
+    // Si no se encontró la tarea, no se hace nada y retorna
+    if (!tareaAModificar) {
+      return;
+    }
+
+    //modifica el estado de la tarea
+    const tareaActualizada = { ...tareaAModificar, completed : true };
+
+    //hace una copia de la lista original
+    const listaCopiada = [...todos];
+
+    // Encuentra el índice de la tarea en el array original
+    const taskIndex = todos.findIndex((todo) => todo.id === id);
+
+    // Crea una nueva copia del array original de tareas
+    const tareasActualizadas = [...todos];
+
+    // Reemplaza la tarea modificada en la copia del array
+    tareasActualizadas[taskIndex] = tareaActualizada;
+
+    // Actualiza el estado con la copia actualizada del array
+    setTodos(tareasActualizadas);
+  };
 
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
@@ -47,7 +71,11 @@ const App = () => {
 
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo} />
-        <TodoList todos={todos} deleteTodo={deleteTodo}/>
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          updateTodo={updateTodo}
+        />
         <TodoComputed todos={todos} />
         <TodoFilter />
       </main>
