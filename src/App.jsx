@@ -14,7 +14,7 @@ import { useState } from "react";
 const initialStateTodos = [
   { id: 1, title: "Hacer Curso de React", completed: true },
   { id: 2, title: "Hacer Curso de Next.Js", completed: false },
-  { id: 3, title: "Hacer Curso de Bootstrap", completed: false },
+  { id: 3, title: "Hacer Curso de Bootstrap", completed: true },
 ];
 
 const App = () => {
