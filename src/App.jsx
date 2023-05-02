@@ -12,10 +12,9 @@ import { useState } from "react";
 //por lo que dentro de App.jsx voy a crear mi estado global--> osea mi estado inicial
 
 const initialStateTodos = [
-  { id: 1, title: "hola soy uno", completed: true },
-  { id: 2, title: "hola soy dos", completed: false },
-  { id: 3, title: "hola soy tres", completed: false },
-  { id: 4, title: "hola soy cuatro", completed: false },
+  { id: 1, title: "Hacer Curso de React", completed: true },
+  { id: 2, title: "Hacer Curso de Next.Js", completed: false },
+  { id: 3, title: "Hacer Curso de Bootstrap", completed: false },
 ];
 
 const App = () => {
@@ -31,6 +30,15 @@ const App = () => {
     setTodos([...todos, newTodo]);
   };
 
+
+  //metodo para eliminar el Todo, recibe el key entiendo
+  const deleteTodo = (id) => {
+    const newArray = todos.filter(todo => todo.id != id)
+    setTodos(newArray)
+  };
+
+
+
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
 
@@ -39,7 +47,7 @@ const App = () => {
 
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} deleteTodo={deleteTodo}/>
         <TodoComputed />
         <TodoFilter />
       </main>
