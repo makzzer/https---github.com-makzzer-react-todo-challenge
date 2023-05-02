@@ -48,7 +48,7 @@ const App = () => {
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo} />
         <TodoList todos={todos} deleteTodo={deleteTodo}/>
-        <TodoComputed />
+        <TodoComputed todos={todos} />
         <TodoFilter />
       </main>
 
