@@ -1,4 +1,4 @@
-const TodoFilter = () => {
+const TodoFilter = (todos) => {
     return (
         <section className="container mx-auto mt-8">
         <div className="flex justify-center gap-4 rounded bg-white p-4">

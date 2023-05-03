@@ -36,6 +36,11 @@ const App = () => {
     setTodos(newArray);
   };
 
+
+  const clearTodos = () => {
+    const arrayVacio = []
+    setTodos(arrayVacio)
+  };
   
 
   {/**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
@@ -92,8 +97,8 @@ const updateTodo = (id) =>{
           deleteTodo={deleteTodo}
           updateTodo={updateTodo}
         />
-        <TodoComputed todos={todos} />
-        <TodoFilter />
+        <TodoComputed todos={todos} clearTodos={clearTodos}/>
+        <TodoFilter todos={todos}/>
       </main>
 
       <Footer />
