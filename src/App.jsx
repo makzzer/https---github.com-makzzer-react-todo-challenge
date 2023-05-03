@@ -37,10 +37,31 @@ const App = () => {
   };
 
 
-  const clearTodos = () => {
-    const arrayVacio = []
-    setTodos(arrayVacio)
+  const limpiarTodosCompletados = () => {
+    const arraySinCompletados = todos.filter((todo) => todo.completed != true)
+    setTodos(arraySinCompletados)
   };
+
+  const filtrarAll = () => {
+    //hago un bk del array original
+    const backtodos = [...todos];
+    setTodos(todos)
+  }
+
+  const filtrarActives = () => {
+    //hago un bk del array original
+    const backtodos = [...todos];
+    const newArray = todos.filter((todo)=> todo.completed != true)
+    setTodos(newArray)
+  }
+
+  const filtrarCompleted = () => {
+    //hago un bk del array original
+    const backtodos = [...todos];
+    const newArray = todos.filter((todo)=> todo.completed != false)
+    setTodos(newArray)
+
+  }
   
 
   {/**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
@@ -97,8 +118,8 @@ const updateTodo = (id) =>{
           deleteTodo={deleteTodo}
           updateTodo={updateTodo}
         />
-        <TodoComputed todos={todos} clearTodos={clearTodos}/>
-        <TodoFilter todos={todos}/>
+        <TodoComputed todos={todos} limpiarTodosCompletados={limpiarTodosCompletados}/>
+        <TodoFilter todos={todos} filtrarActives={filtrarActives} filtrarCompleted={filtrarCompleted} filtrarAll={filtrarAll} />
       </main>
 
       <Footer />
