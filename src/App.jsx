@@ -20,6 +20,28 @@ const initialStateTodos = [
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
 
+  //Creo otro state para los filtros
+  const [filtro, setFiltro] = useState("all");
+
+
+  //tema filtro explicado en el video 105
+  const filtrarTodos = () => {
+    switch (filtro) {
+      case "all":
+        return todos;
+      case "active":
+        return todos.filter((todo) => todo.completed != true);
+      case "completed":
+        return todos.filter((todo) => todo.completed != false);
+      default:
+        return todos;
+    }
+  }
+
+  const changeFilter = (filtro) => setFiltro(filtro);
+
+
+
   //metodo para crear el todo, recibe el titulo
   const createTodo = (title) => {
     const newTodo = {
@@ -29,6 +51,8 @@ const App = () => {
     };
     setTodos([...todos, newTodo]);
   };
+
+
 
   //metodo para eliminar el Todo, recibe el key entiendo
   const deleteTodo = (id) => {
@@ -42,27 +66,10 @@ const App = () => {
     setTodos(arraySinCompletados)
   };
 
-  const filtrarAll = () => {
-    //hago un bk del array original
-    const backtodos = [...todos];
-    setTodos(todos)
-  }
+  //metodo para contar los elementos computados osea los elementos que faltan sin completar
 
-  const filtrarActives = () => {
-    //hago un bk del array original
-    const backtodos = [...todos];
-    const newArray = todos.filter((todo)=> todo.completed != true)
-    setTodos(newArray)
-  }
+  const computedElementsLeft = todos.filter((todo) => todo.completed != true).length
 
-  const filtrarCompleted = () => {
-    //hago un bk del array original
-    const backtodos = [...todos];
-    const newArray = todos.filter((todo)=> todo.completed != false)
-    setTodos(newArray)
-
-  }
-  
 
   {/**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
   const updateTodo = (id) => {
@@ -96,14 +103,14 @@ const App = () => {
      */}
 
 
-const updateTodo = (id) =>{
-  setTodos(todos.map(
-    todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
-}
+  const updateTodo = (id) => {
+    setTodos(todos.map(
+      todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo))
+  }
 
 
 
-  
+
 
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
@@ -114,12 +121,12 @@ const updateTodo = (id) =>{
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo} />
         <TodoList
-          todos={todos}
+          todos={filtrarTodos()}
           deleteTodo={deleteTodo}
           updateTodo={updateTodo}
         />
-        <TodoComputed todos={todos} limpiarTodosCompletados={limpiarTodosCompletados}/>
-        <TodoFilter todos={todos} filtrarActives={filtrarActives} filtrarCompleted={filtrarCompleted} filtrarAll={filtrarAll} />
+        <TodoComputed todos={todos} limpiarTodosCompletados={limpiarTodosCompletados} computedElementsLeft={computedElementsLeft} />
+        <TodoFilter changeFilter={changeFilter} />
       </main>
 
       <Footer />

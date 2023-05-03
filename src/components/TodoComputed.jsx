@@ -1,4 +1,4 @@
-const TodoComputed = ({ todos,limpiarTodosCompletados} ) => {
+const TodoComputed = ({ todos,limpiarTodosCompletados,computedElementsLeft} ) => {
 
   //desestructuro el todo
 
@@ -18,7 +18,7 @@ const TodoComputed = ({ todos,limpiarTodosCompletados} ) => {
   } else {
     return (
       <section className="flex justify-between rounded-b-md bg-white py-4 px-4">
-        <span className="text-gray-400">{todos.length} items left</span>
+        <span className="text-gray-400">{computedElementsLeft} items left</span>
         <button onClick={limpiarTodosCompletados} className="text-gray-400">Clear Completed</button>
       </section>
     );
