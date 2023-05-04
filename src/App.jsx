@@ -115,7 +115,7 @@ const App = () => {
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
 
-    <div className="min-h-screen bg-gray-300 bg-[url('./images/bg-mobile-light.jpg')] bg-cover bg-no-repeat">
+    <div className="min-h-screen bg-gray-300 bg-[url('./images/bg-mobile-light.jpg')] dark:bg-[url('./images/bg-mobile-dark.jpg')]    bg-cover bg-no-repeat dark:bg-gray-800 dark:text-gray-400">
       <Header />
 
       <main className="container mx-auto mt-8 px-4">

@@ -24,7 +24,7 @@ const TodoItem = ({ todo, deleteTodo,updateTodo }) => {
       </button>
 
       {/*cuando no hay un caso contrario en el operador ternario no uso ? y : --> solamente uso &&*/}
-      <p className={`grow text-gray-600 ${completed && "line-through"}`}>
+      <p className={`grow text-gray-600  dark:text-gray-400 ${completed && "line-through"}`}>
         {title}
       </p>
       <button
