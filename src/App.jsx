@@ -126,7 +126,7 @@ const App = () => {
           updateTodo={updateTodo}
         />
         <TodoComputed todos={todos} limpiarTodosCompletados={limpiarTodosCompletados} computedElementsLeft={computedElementsLeft} />
-        <TodoFilter changeFilter={changeFilter} />
+        <TodoFilter changeFilter={changeFilter} filtro={filtro}/>
       </main>
 
       <Footer />

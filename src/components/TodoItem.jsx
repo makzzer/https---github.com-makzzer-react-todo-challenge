@@ -8,7 +8,7 @@ const TodoItem = ({ todo, deleteTodo,updateTodo }) => {
   const { id, title, completed } = todo;
 
   return (
-    <article className="flex gap-4 border-b border-b-gray-800">
+    <article className="flex gap-4 border-b border-b-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:border-b-gray-400">
       
       <button
       onClick={()=>{updateTodo(id)}}
