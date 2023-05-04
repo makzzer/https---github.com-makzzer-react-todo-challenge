@@ -4,7 +4,7 @@ import TodoFilter from "./components/TodoFilter";
 import TodoList from "./components/TodoList";
 import TodoComputed from "./components/TodoComputed";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //Creo el estado global que va a afectar a todos los otros componentes,
 //los componentes hijos no pueden enviar props a los componentes padres por lo que los estados los van a estar gestionando
@@ -17,12 +17,18 @@ const initialStateTodos = [
   { id: 3, title: "Hacer Curso de Bootstrap", completed: true },
 ];
 
+const initialStateTodos2 = JSON.parse(localStorage.getItem('todos')) || initialStateTodos;
+
 const App = () => {
-  const [todos, setTodos] = useState(initialStateTodos);
+  const [todos, setTodos] = useState(initialStateTodos2);
 
   //Creo otro state para los filtros
   const [filtro, setFiltro] = useState("all");
 
+  //use effect para el local storage, cuando haya un cambio en los todos, actualizar el localStorage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   //tema filtro explicado en el video 105
   const filtrarTodos = () => {
@@ -36,11 +42,9 @@ const App = () => {
       default:
         return todos;
     }
-  }
+  };
 
   const changeFilter = (filtro) => setFiltro(filtro);
-
-
 
   //metodo para crear el todo, recibe el titulo
   const createTodo = (title) => {
@@ -52,26 +56,25 @@ const App = () => {
     setTodos([...todos, newTodo]);
   };
 
-
-
   //metodo para eliminar el Todo, recibe el key entiendo
   const deleteTodo = (id) => {
     const newArray = todos.filter((todo) => todo.id != id);
     setTodos(newArray);
   };
 
-
   const limpiarTodosCompletados = () => {
-    const arraySinCompletados = todos.filter((todo) => todo.completed != true)
-    setTodos(arraySinCompletados)
+    const arraySinCompletados = todos.filter((todo) => todo.completed != true);
+    setTodos(arraySinCompletados);
   };
 
   //metodo para contar los elementos computados osea los elementos que faltan sin completar
 
-  const computedElementsLeft = todos.filter((todo) => todo.completed != true).length
+  const computedElementsLeft = todos.filter(
+    (todo) => todo.completed != true
+  ).length;
 
-
-  {/**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
+  {
+    /**  LO SIGUIENTE ES MI UPDATE, LO VOY A CAMBIAR POR EL DE UDEMY Video 103 PORQUE NO PUEDO HACER !todo.completed
   const updateTodo = (id) => {
 
     const tareaAModificar = todos.find((todo) => todo.id === id);
@@ -100,22 +103,21 @@ const App = () => {
     setTodos(tareasActualizadas);
 
 
-     */}
-
-
-  const updateTodo = (id) => {
-    setTodos(todos.map(
-      todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo))
+     */
   }
 
-
-
-
+  const updateTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
 
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
 
-    <div className="min-h-screen bg-gray-300 bg-[url('./images/bg-mobile-light.jpg')] dark:bg-[url('./images/bg-mobile-dark.jpg')]    bg-cover bg-no-repeat dark:bg-gray-800 dark:text-gray-400">
+    <div className="min-h-screen bg-gray-300 bg-[url('./images/bg-mobile-light.jpg')] bg-cover    bg-no-repeat dark:bg-gray-800 dark:bg-[url('./images/bg-mobile-dark.jpg')] dark:text-gray-400">
       <Header />
 
       <main className="container mx-auto mt-8 px-4">
@@ -125,8 +127,12 @@ const App = () => {
           deleteTodo={deleteTodo}
           updateTodo={updateTodo}
         />
-        <TodoComputed todos={todos} limpiarTodosCompletados={limpiarTodosCompletados} computedElementsLeft={computedElementsLeft} />
-        <TodoFilter changeFilter={changeFilter} filtro={filtro}/>
+        <TodoComputed
+          todos={todos}
+          limpiarTodosCompletados={limpiarTodosCompletados}
+          computedElementsLeft={computedElementsLeft}
+        />
+        <TodoFilter changeFilter={changeFilter} filtro={filtro} />
       </main>
 
       <Footer />

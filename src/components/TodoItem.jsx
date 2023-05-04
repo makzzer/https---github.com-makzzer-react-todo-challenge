@@ -12,7 +12,7 @@ const TodoItem = ({ todo, deleteTodo,updateTodo }) => {
       
       <button
       onClick={()=>{updateTodo(id)}}
-        className={`flex h-5 w-5 flex-none items-center justify-center rounded-full border-2 ${
+        className={`flex h-5 w-5 flex-none items-center justify-center rounded-full border-2 border-gray-300 ${
           completed
             ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
             : "inline-block"
