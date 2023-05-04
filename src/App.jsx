@@ -11,16 +11,16 @@ import { useEffect, useState } from "react";
 //mi componente principal que en este caso es App.jsx
 //por lo que dentro de App.jsx voy a crear mi estado global--> osea mi estado inicial
 
-const initialStateTodos = [
+const listaTodosDefault = [
   { id: 1, title: "Hacer Curso de React", completed: true },
   { id: 2, title: "Hacer Curso de Next.Js", completed: false },
   { id: 3, title: "Hacer Curso de Bootstrap", completed: true },
 ];
 
-const initialStateTodos2 = JSON.parse(localStorage.getItem('todos')) || initialStateTodos;
+const initialStateTodos = JSON.parse(localStorage.getItem('todos')) || listaTodosDefault;
 
 const App = () => {
-  const [todos, setTodos] = useState(initialStateTodos2);
+  const [todos, setTodos] = useState(initialStateTodos);
 
   //Creo otro state para los filtros
   const [filtro, setFiltro] = useState("all");
