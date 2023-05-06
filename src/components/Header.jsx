@@ -7,8 +7,8 @@ import IconSun from "./icons/IconSun";
 //el metodo ya devuelve un booleano
 
 
-const initialStateDarkMode = sessionStorage.theme === "dark";
-console.log(sessionStorage.theme)
+const initialStateDarkMode = localStorage.theme === "dark";
+console.log(localStorage.theme)
 
 
 
@@ -26,7 +26,7 @@ const Header = () => {
 
       document.documentElement.classList.add("dark")
       //para persistir el tema segun la preferencia del usuario incluso cuando actualicé, guardo theme=light o theme=dark, en localStorage
-      sessionStorage.theme = 'dark'
+      //sessionStorage.theme = 'dark'
       localStorage.theme = 'dark'
       //console.log(sessionStorage.getItem('theme'))
       //console.log("estoy en true")
@@ -35,7 +35,7 @@ const Header = () => {
     } else {
       document.documentElement.classList.remove("dark");
       //se puede hacer de esta otra manera tambien
-      sessionStorage.setItem('theme', 'light')
+      //sessionStorage.setItem('theme', 'light')
       localStorage.theme = 'light'
       //console.log(sessionStorage.getItem('theme'))
       //console.log("estoy en false")
