@@ -2,7 +2,7 @@ const TodoFilter = ({ changeFilter, filtro }) => {
   //recibe el filtro porque es el String, es para que me muestre el hover activo depende el filtro que yo elija
   return (
     <section className="container mx-auto mt-8">
-      <div className="flex justify-center gap-4 rounded bg-white p-4 dark:bg-gray-800 dark:text-gray-400">
+      <div className="flex justify-center gap-4 rounded transition-all duration-1000 bg-white p-4 dark:bg-gray-800 dark:text-gray-400">
         <button
           className={`${
             filtro === "all"

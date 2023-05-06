@@ -24,11 +24,11 @@ const TodoCreate = ({ createTodo }) => {
   return (
     <form
       onSubmit={handleSubmitAddTodo}
-      className="flex items-center gap-4 overflow-hidden rounded-md bg-white px-4 dark:bg-gray-800 dark:text-gray-400"
+      className="flex items-center gap-4 overflow-hidden rounded-md transition-all duration-1000 bg-white px-4 dark:bg-gray-800 dark:text-gray-400"
     >
       <span className="inline-block h-5 w-5 rounded-full border-2  border-gray-300"></span>
       <input
-        className="w-full px-4 py-4 text-gray-400 outline-none dark:bg-gray-800 dark:text-gray-300"
+        className="w-full px-4 py-4 text-gray-400 outline-none transition-all duration-1000 dark:bg-gray-800 dark:text-gray-300"
         type="text"
         placeholder="Crear una nueva tarea..."
         value={title}

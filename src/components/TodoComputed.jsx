@@ -10,14 +10,14 @@ const TodoComputed = ({ todos,limpiarTodosCompletados,computedElementsLeft} ) =>
 
   if (todos.length === 0) {
     return (
-      <section className="text-left rounded-b-md bg-white py-4 px-4 dark:bg-gray-800 dark:text-gray-400">
+      <section className="text-left rounded-b-md transition-all duration-1000 bg-white py-4 px-4 dark:bg-gray-800 dark:text-gray-400">
         <span className="text-gray-400 inline-block">No tasks Available Sir</span>
       </section>
     );
 
   } else {
     return (
-      <section className="flex justify-between rounded-b-md bg-white py-4 px-4 dark:bg-gray-800 dark:text-gray-400">
+      <section className="flex justify-between rounded-b-md transition-all duration-1000 bg-white py-4 px-4 dark:bg-gray-800 dark:text-gray-400">
         <span className="text-gray-400">{computedElementsLeft} items left</span>
         <button onClick={limpiarTodosCompletados} className="text-gray-400">Clear Completed</button>
       </section>

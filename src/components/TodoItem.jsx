@@ -8,7 +8,7 @@ const TodoItem = ({ todo, deleteTodo,updateTodo }) => {
   const { id, title, completed } = todo;
 
   return (
-    <article className="flex gap-4 border-b border-b-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:border-b-gray-400">
+    <article className="flex gap-4 border-b transition-all duration-1000 border-b-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:border-b-gray-400">
       
       <button
       onClick={()=>{updateTodo(id)}}
@@ -24,7 +24,7 @@ const TodoItem = ({ todo, deleteTodo,updateTodo }) => {
       </button>
 
       {/*cuando no hay un caso contrario en el operador ternario no uso ? y : --> solamente uso &&*/}
-      <p className={`grow text-gray-600  dark:text-gray-400 ${completed && "line-through"}`}>
+      <p className={`grow text-gray-600 transition-all duration-1000 dark:text-gray-400  ${completed && "line-through"}`}>
         {title}
       </p>
       <button
