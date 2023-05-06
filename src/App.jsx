@@ -11,13 +11,15 @@ import { useEffect, useState } from "react";
 //mi componente principal que en este caso es App.jsx
 //por lo que dentro de App.jsx voy a crear mi estado global--> osea mi estado inicial
 
+/*
 const listaTodosDefault = [
   { id: 1, title: "Hacer Curso de React", completed: true },
   { id: 2, title: "Hacer Curso de Next.Js", completed: false },
   { id: 3, title: "Hacer Curso de Bootstrap", completed: true },
 ];
+*/
 
-const initialStateTodos =  JSON.parse(localStorage.getItem('todos')) || [ ] ;
+const initialStateTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
 const App = () => {
 
@@ -25,12 +27,12 @@ const App = () => {
 
   //use effect para el local storage, cuando haya un cambio en los todos, actualizar el localStorage
   useEffect(() => {
-     localStorage.todos = JSON.stringify(todos);
+    localStorage.todos = JSON.stringify(todos);
   }, [todos]);
 
 
-    //Creo otro state para los filtros
-    const [filtro, setFiltro] = useState("all");
+  //Creo otro state para los filtros
+  const [filtro, setFiltro] = useState("all");
 
   //tema filtro explicado en el video 105
   const filtrarTodos = () => {
@@ -119,7 +121,22 @@ const App = () => {
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
 
-    <div className="min-h-screen transition-all duration-1000 bg-gray-300 bg-[url('./images/bgMobileLight.jpg')] bg-cover    bg-no-repeat dark:bg-gray-800 dark:bg-[url('./images/bgMobileDark.jpg')] dark:text-gray-400">
+    <div className="min-h-screen
+    bg-gray-300
+    bg-[url('./images/bgMobileLight.jpg')]
+     transition-all
+      duration-1000
+      
+        
+         bg-contain 
+          md:bg-[url('./images/bg-desktop-light.jpg')]
+            bg-no-repeat
+             dark:bg-gray-800
+              md:dark:bg-[url('./images/bg-desktop-dark.jpg')]
+               dark:bg-[url('./images/bgMobileDark.jpg')]
+                dark:text-gray-400">
+
+
       <Header />
 
       <main className="container mx-auto mt-8 px-4">
