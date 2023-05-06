@@ -17,18 +17,20 @@ const listaTodosDefault = [
   { id: 3, title: "Hacer Curso de Bootstrap", completed: true },
 ];
 
-const initialStateTodos = JSON.parse(localStorage.getItem('todos')) || listaTodosDefault;
+const initialStateTodos =  JSON.parse(localStorage.getItem('todos')) || [ ] ;
 
 const App = () => {
-  const [todos, setTodos] = useState(listaTodosDefault);
 
-  //Creo otro state para los filtros
-  const [filtro, setFiltro] = useState("all");
+  const [todos, setTodos] = useState(initialStateTodos);
 
   //use effect para el local storage, cuando haya un cambio en los todos, actualizar el localStorage
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+     localStorage.todos = JSON.stringify(todos);
   }, [todos]);
+
+
+    //Creo otro state para los filtros
+    const [filtro, setFiltro] = useState("all");
 
   //tema filtro explicado en el video 105
   const filtrarTodos = () => {
