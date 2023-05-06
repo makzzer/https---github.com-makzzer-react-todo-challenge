@@ -27,17 +27,19 @@ const Header = () => {
       document.documentElement.classList.add("dark")
       //para persistir el tema segun la preferencia del usuario incluso cuando actualicé, guardo theme=light o theme=dark, en localStorage
       sessionStorage.theme = 'dark'
-      console.log(sessionStorage.getItem('theme'))
-      console.log("estoy en true")
-      console.log(darkMode)
-      
+      localStorage.theme = 'dark'
+      //console.log(sessionStorage.getItem('theme'))
+      //console.log("estoy en true")
+      //console.log(darkMode)
+
     } else {
       document.documentElement.classList.remove("dark");
       //se puede hacer de esta otra manera tambien
-      sessionStorage.setItem('theme','light')
-      console.log(sessionStorage.getItem('theme'))
-      console.log("estoy en false")
-      console.log(darkMode)
+      sessionStorage.setItem('theme', 'light')
+      localStorage.theme = 'light'
+      //console.log(sessionStorage.getItem('theme'))
+      //console.log("estoy en false")
+      //console.log(darkMode)
     }
     console.log(darkMode)
 
