@@ -5,8 +5,13 @@ import IconSun from "./icons/IconSun";
 //acá voy a definir el estado inicial en lo que esté en localStorage, si viene dark lo dejo en dark por mas que presione F5,
 //esto es para que repete las preferencias de visualizacion del usuario aunque actualice el sitio web
 //el metodo ya devuelve un booleano
-const initialStateDarkMode = localStorage.getItem("theme") === 'dark' ? true : false;
-//console.log(localStorage.getItem('theme'))
+
+
+const initialStateDarkMode = sessionStorage.theme === "dark";
+console.log(sessionStorage.theme)
+
+
+
 
 //{/*Header (Componente) en vuejs recomiendan qe los componentes no sean de 1 palabra, en react si se podría*/}
 const Header = () => {
@@ -21,16 +26,20 @@ const Header = () => {
 
       document.documentElement.classList.add("dark")
       //para persistir el tema segun la preferencia del usuario incluso cuando actualicé, guardo theme=light o theme=dark, en localStorage
-      localStorage.theme = 'dark'
-      console.log(localStorage.getItem('theme'))
+      sessionStorage.theme = 'dark'
+      console.log(sessionStorage.getItem('theme'))
+      console.log("estoy en true")
+      console.log(darkMode)
       
     } else {
       document.documentElement.classList.remove("dark");
       //se puede hacer de esta otra manera tambien
-      localStorage.setItem('theme','light')
-      console.log(localStorage.getItem('theme'))
+      sessionStorage.setItem('theme','light')
+      console.log(sessionStorage.getItem('theme'))
+      console.log("estoy en false")
+      console.log(darkMode)
     }
-    console.log(initialStateDarkMode)
+    console.log(darkMode)
 
   }, [darkMode])
 
