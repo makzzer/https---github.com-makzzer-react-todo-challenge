@@ -123,7 +123,7 @@ const App = () => {
 
     <div className="min-h-screen
     bg-gray-300
-    bg-[url('./images/bgMobileLight.jpg')]
+    bg-[url('./assets/images/bgMobileLight.jpg')]
      transition-all
       duration-1000
       
@@ -133,7 +133,7 @@ const App = () => {
             bg-no-repeat
              dark:bg-gray-900
               md:dark:bg-[url('./assets/images/bg-desktop-dark.jpg')]
-               dark:bg-[url('./images/bgMobileDark.jpg')]
+               dark:bg-[url('./assets/images/bgMobileDark.jpg')]
                 dark:text-gray-400">
 
 
