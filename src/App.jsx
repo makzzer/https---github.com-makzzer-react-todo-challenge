@@ -131,7 +131,7 @@ const App = () => {
          bg-contain 
           md:bg-[url('./images/bg-desktop-light.jpg')]
             bg-no-repeat
-             dark:bg-gray-800
+             dark:bg-gray-900
               md:dark:bg-[url('./images/bg-desktop-dark.jpg')]
                dark:bg-[url('./images/bgMobileDark.jpg')]
                 dark:text-gray-400">
@@ -139,7 +139,7 @@ const App = () => {
 
       <Header />
 
-      <main className="container mx-auto mt-8 px-4">
+      <main className="container mx-auto mt-8 px-4 md:max-w-xl">
         <TodoCreate createTodo={createTodo} />
         <TodoList
           todos={filtrarTodos()}
