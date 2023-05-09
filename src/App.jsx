@@ -152,9 +152,10 @@ const App = () => {
           computedElementsLeft={computedElementsLeft}
         />
         <TodoFilter changeFilter={changeFilter} filtro={filtro} />
-      </main>
+
 
       <Footer />
+      </main>
     </div>
   );
 };
