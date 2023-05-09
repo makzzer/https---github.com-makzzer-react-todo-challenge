@@ -129,10 +129,10 @@ const App = () => {
       
         
          bg-contain 
-          md:bg-[url('./images/bg-desktop-light.jpg')]
+          md:bg-[url('./assets/images/bg-desktop-light.jpg')]
             bg-no-repeat
              dark:bg-gray-900
-              md:dark:bg-[url('./images/bg-desktop-dark.jpg')]
+              md:dark:bg-[url('./assets/images/bg-desktop-dark.jpg')]
                dark:bg-[url('./images/bgMobileDark.jpg')]
                 dark:text-gray-400">
 
