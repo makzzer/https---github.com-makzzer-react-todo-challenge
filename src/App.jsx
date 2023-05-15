@@ -6,6 +6,8 @@ import TodoComputed from "./components/TodoComputed";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 
+
+
 //Creo el estado global que va a afectar a todos los otros componentes,
 //los componentes hijos no pueden enviar props a los componentes padres por lo que los estados los van a estar gestionando
 //mi componente principal que en este caso es App.jsx
@@ -118,6 +120,8 @@ const App = () => {
     );
   };
 
+
+
   return (
     //el fragment es porque no podemos tener elementos sueltos sino que tenemos que devolver un unico elemento en el componente
 
@@ -138,13 +142,13 @@ const App = () => {
 
 
       <Header />
-
       <main className="container mx-auto mt-8 px-4 md:max-w-xl">
         <TodoCreate createTodo={createTodo} />
         <TodoList
           todos={filtrarTodos()}
           deleteTodo={deleteTodo}
           updateTodo={updateTodo}
+          setTodos={setTodos}
         />
         <TodoComputed
           todos={todos}
@@ -154,7 +158,8 @@ const App = () => {
         <TodoFilter changeFilter={changeFilter} filtro={filtro} />
 
 
-      <Footer />
+        <Footer />
+
       </main>
     </div>
   );
