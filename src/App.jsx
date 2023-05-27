@@ -84,7 +84,7 @@ const App = () => {
   const updateTodo = (id) => {
 
     const tareaAModificar = todos.find((todo) => todo.id === id);
-   
+
     // Si no se encontró la tarea, no se hace nada y retorna
     if (!tareaAModificar) {
       return;
@@ -130,9 +130,9 @@ const App = () => {
     bg-[url('./assets/images/bgMobileLight.jpg')]
      transition-all
       duration-1000
-      
-        
-         bg-contain 
+
+
+         bg-contain
           md:bg-[url('./assets/images/bg-desktop-light.jpg')]
             bg-no-repeat
              dark:bg-gray-900
